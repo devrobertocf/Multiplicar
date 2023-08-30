@@ -57,21 +57,51 @@
 <div id="team">
     <div class="container">
         <div class="row">
-                <h2 class="wow bounce animated" style="visibility: visible; animation-name: bounce; color: #033b19;"><br>Consulta de Multas<hr></h2>
+            <h2 class="wow bounce animated" style="visibility: visible; animation-name: bounce; color: #033b19;"><br>Consulta de Multas<hr></h2>
 
-				<div class="multas">
-					<b>Nº PLACA:</b> <input type="text" name="name" placeholder="Digite aqui..."><br><br>
-				    <b>RENAVAM:</b> <input type="text" name="name" placeholder="Digite aqui..."><br>
-				</div>
-				<div>
-					<div>
-						<a class="multas2" href="(LINK)" style="color:white; text-decoration:none;">Consultar</a>
-					</div>
+            <form id="consultaForm">
+                <div class="multas">
+                    <b>Nº PLACA:</b> <input type="text" id="placa" name="placa" placeholder="Digite aqui..."><br><br>
+                    <b>RENAVAM:</b> <input type="text" id="renavam" name="renavam" placeholder="Digite aqui..."><br>
                 </div>
+                <div>
+                    <div>
+                        <a class="multas2" href="#" onclick="consultarMultas(); return false;" style="color:white; text-decoration:none;">Consultar</a>
+                    </div>
+                </div>
+                <p id="errorMessage" style="color: red;"></p>
+            </form>
         </div>
     </div>
 </div>
 <!-- end service -->
+<script>
+	function consultarMultas() {
+		var placa = document.getElementById("placa").value;
+		var renavam = document.getElementById("renavam").value;
+		var errorMessageElement = document.getElementById("errorMessage");
+
+		if (placa.trim() === "" || renavam.trim() === "") {
+			if (errorMessageElement) {
+            errorMessageElement.textContent = "Dados inválidos, verifique e tente novamente.";
+        } else {
+            errorMessageElement = document.createElement("p");
+            errorMessageElement.style.color = "red";
+            errorMessageElement.textContent = "Dados inválidos, verifique e tente novamente.";
+            errorMessageElement.id = "errorMessage";
+            document.getElementById("consultaForm").appendChild(errorMessageElement);
+        }
+    } else {
+        if (errorMessageElement) {
+            errorMessageElement.textContent = ""; // Remove the error message
+        }
+			// Realize a lógica de consulta real aqui
+			// Substitua o "alert" pela sua lógica de consulta real
+			alert("Dados inválidos, favor verificar e tentar novamente.");
+			//alert("Consultando com placa: " + placa + " e renavam: " + renavam);
+		}
+	}
+	</script>
 <!-- start contato -->
 <hr>
 <div id = "contato">
