@@ -83,11 +83,11 @@
 
 		if (placa.trim() === "" || renavam.trim() === "") {
 			if (errorMessageElement) {
-            errorMessageElement.textContent = "Dados inválidos, verifique e tente novamente.";
+            errorMessageElement.textContent = "Favor preencher os campos obrigatórios.";
         } else {
             errorMessageElement = document.createElement("p");
             errorMessageElement.style.color = "red";
-            errorMessageElement.textContent = "Dados inválidos, verifique e tente novamente.";
+            errorMessageElement.textContent = "Favor preencher os campos obrigatórios.";
             errorMessageElement.id = "errorMessage";
             document.getElementById("consultaForm").appendChild(errorMessageElement);
         }
